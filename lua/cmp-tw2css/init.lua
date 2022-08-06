@@ -21,26 +21,12 @@ function source:get_debug_name()
 end
 
 -- Invoke completion (required).
--- @param params cmp.SourceCompletionApiParams
+-- @param params cmp.SourceCompletionApiParamsi
 -- @param callback fun(response: lsp.CompletionResponse|nil)
 function source:complete(params, callback)
-  -- load json file
-  local classTable = vim.fn.json_decode(
-    vim.fn.readfile(vim.fn.expand("./tw.json"))
-  )
-
-  local items = {}
-  for key, value in pairs(classTable) do
-    table.insert(items, {
-      word = key,
-      label = key,
-      insertText = value,
-      filterText = key,
-      detail = value,
-    })
-  end
-
   -- custom sorting
+  local items = require("cmp-tw2css.items")()
+
   table.sort(items, function(a, b)
     return a.label < b.label
   end)
