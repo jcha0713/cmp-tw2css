@@ -40,6 +40,8 @@ Using `cmp-tw2css` is simple. Open any file with `.css`, `.scss`, or `.less` ext
 
 ### Example
 
+![demo](./extra/demo.gif)
+
 ```css
 body {
   /* flex -> display: flex; */
@@ -51,6 +53,8 @@ body {
 ## Limitation
 
 There are a number of limitations to `cmp-tw2css`. First, the source of this plugin is a result of web scraping. This means that you might find some items are missing while using. If this happens to you, please let me know by submitting an issue so that I can update the source accordingly. Another downside is that it can't be dynamically generated and only provides the code from the official website. 
+
+Currently `cmp-tw2css` cannot detect whether the cursor is inside the code block or not. And when the insert text is more than one line, it does not automatically add tabs for the additional lines.
 
 ## Roadmap
 
