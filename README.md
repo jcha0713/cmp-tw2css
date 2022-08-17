@@ -1,7 +1,9 @@
 # cmp-tw2css
 
+- [한국어 문서 읽으러 가기](README-KO.md)
+
 A source for [`nvim-cmp`](https://github.com/hrsh7th/nvim-cmp) to convert [tailwindcss](https://tailwindcss.com) classes to pure css codes.
-It uses treesitter to find out whether any css code block exists in the code and load the completion source.
+It uses treesitter to find out whether any css code block exists in the code and loads the completion source.
 
 ## Setup
 
@@ -75,13 +77,14 @@ body {
 
 There are a number of limitations to `cmp-tw2css`. First, the source of this plugin is a result of web scraping. This means that you might find some items are missing while using. If this happens to you, please let me know by submitting an issue so that I can update the source accordingly. Another downside is that it can't be dynamically generated and only provides the code from the official website. 
 
-Currently `cmp-tw2css` does not automatically add tabs for the additional lines when the insert text is more than one line. And also when there are more than one colon(`:`), `cmp-tw2css` cannot properly load its completion source.
+Currently `cmp-tw2css` does not automatically add tabs for the additional lines when the insert text is more than one line. And also when there are more than one colon(`:`) in a line, `cmp-tw2css` cannot properly load its completion source.
 
 ## Roadmap
 
 - [x] Load the source only when the cursor is inside the code block
 - [ ] Provide ways to configure with treesitter
 - [ ] Show documentation when selecting an item...?
+- [ ] Provide the completion source using LSP functionality
 
 ## Credit
 
