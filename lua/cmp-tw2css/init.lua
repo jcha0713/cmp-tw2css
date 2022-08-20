@@ -34,7 +34,6 @@ local function iter_tree(tree)
 
   if tree:children() ~= nil then
     for child_lang, child_tree in pairs(tree:children()) do
-      print("child lang: " .. child_lang)
       if is_stylesheet(child_lang) then
         return true
       else
