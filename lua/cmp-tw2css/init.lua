@@ -13,8 +13,10 @@ source.new = function()
   return self
 end
 
+---@param user_opt table
 source.setup = function(user_opt)
   if user_opt then
+    vim.validate({ fallback = { user_opt.fallback, "boolean" } })
     opt = vim.tbl_deep_extend("force", opt, user_opt)
   end
 end
