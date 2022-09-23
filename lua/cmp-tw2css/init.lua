@@ -1,4 +1,7 @@
 local source = {}
+local opt = {
+  fallback = true,
+}
 
 ---@class cmp-tw2css.source
 ---@field public is_sorted boolean
@@ -8,6 +11,12 @@ source.new = function()
   self.is_sorted = false
   self.items = {}
   return self
+end
+
+source.setup = function(user_opt)
+  if user_opt then
+    opt = vim.tbl_deep_extend("force", opt, user_opt)
+  end
 end
 
 --- Checks if the lang is css or scss
@@ -134,9 +143,13 @@ function source:complete(params, callback)
   local buf_lang = get_buf_lang(bufnr)
   local ok, root_lang_tree = pcall(vim.treesitter.get_parser, bufnr, buf_lang)
 
-  -- no treesitter, no completion
   if not ok then
-    callback()
+    if opt.fallback then
+      local items = source:get_sorted_items()
+      callback(items)
+    else
+      callback()
+    end
     return
   end
 
@@ -178,5 +191,7 @@ function source:complete(params, callback)
   end
   callback()
 end
+
+-- require("cmp").register_source("cmp-tw2css", source.new())
 
 return source
