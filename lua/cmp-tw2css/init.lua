@@ -53,7 +53,7 @@ local function iter_tree(tree)
     end
   end
 
-  return true
+  return false
 end
 
 --- Return whether this source is available in the current context or not.
