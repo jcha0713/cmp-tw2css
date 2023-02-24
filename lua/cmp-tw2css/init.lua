@@ -136,6 +136,11 @@ function source:get_sorted_items()
         end
       end
       a.kind = kind
+
+      a.documentation = ("%s\n---\n```css\n%s\n```"):format(
+        a.word,
+        a.insertText
+      )
       return a.label < b.label
     end)
 
