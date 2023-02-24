@@ -124,9 +124,18 @@ end
 ---@return table<string, string> items
 function source:get_sorted_items()
   if not self.is_sorted then
+    local KIND = require("cmp").lsp.CompletionItemKind
     -- if items table is not sorted, then sort it
     self.items = require("cmp-tw2css.items")()
     table.sort(self.items, function(a, b)
+      local kind = KIND.Constant
+      for _, val in ipairs({ "color", "stroke:", "fill:" }) do
+        if (a.insertText):match(val) then
+          kind = KIND.Color
+          break
+        end
+      end
+      a.kind = kind
       return a.label < b.label
     end)
 
