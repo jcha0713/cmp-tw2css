@@ -45,6 +45,8 @@ Using `cmp-tw2css` is simple. Open any file that contains css code blocks and st
 
 ### Example
 
+![demo](https://user-images.githubusercontent.com/29053796/222915836-9b2e19d5-3ace-4419-b492-eb1b00b572ac.gif)
+
 - `*.css`:
 
 ```css
