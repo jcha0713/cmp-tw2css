@@ -142,10 +142,6 @@ function source:get_sorted_items()
     -- if items table is not sorted, then sort it
     self.items = require("cmp-tw2css.items")()
     table.sort(self.items, function(a, b)
-      a.documentation = ("%s\n---\n```css\n%s\n```"):format(
-        a.word,
-        a.insertText
-      )
       return a.label < b.label
     end)
 
@@ -156,6 +152,30 @@ function source:get_sorted_items()
   end
 
   return self.items
+end
+
+--- Add documentation before an item is displayed
+--@param completion_item CompletionItem
+--@param callback function
+function source:resolve(completion_item, callback)
+  completion_item.detail = nil
+
+  -- local indent = vim.api.nvim_buf_get_option(0, "shiftwidth")
+  -- local newline_with_indent = ""
+  -- for i = 1, indent do
+  --   newline_with_indent = newline_with_indent .. " "
+  -- end
+
+  -- just use 2 spaces for indent
+  completion_item.documentation = {
+    kind = require("cmp").lsp.MarkupKind.Markdown,
+    value = ("```css\n.%s {\n  %s\n}\n```"):format(
+      completion_item.word,
+      string.gsub(completion_item.insertText, "\n", "\n  ")
+    ),
+  }
+
+  callback(completion_item)
 end
 
 --- Invoke completion (required).
