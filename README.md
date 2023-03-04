@@ -45,8 +45,6 @@ Using `cmp-tw2css` is simple. Open any file that contains css code blocks and st
 
 ### Example
 
-![demo](./extra/demo.gif)
-
 - `*.css`:
 
 ```css
@@ -104,7 +102,7 @@ Currently `cmp-tw2css` does not automatically add tabs for the additional lines 
 
 - [x] Load the source only when the cursor is inside the code block
 - [x] Provide ways to configure with treesitter
-- [ ] Show documentation when selecting an item...?
+- [x] Show documentation when selecting an item
 - [ ] Provide the completion source using LSP functionality
 
 ## Credit

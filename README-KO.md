@@ -43,8 +43,6 @@ require('cmp').setup {
 
 ### 예시
 
-![demo](./extra/demo.gif)
-
 - `*.css`:
 
 ```css
@@ -102,7 +100,7 @@ treesitter 파서가 없을 때 자동 완성 소스를 로드할지 말지 정�
 
 - [x] 커서가 css 코드 블록 안에 있을 때만 소스를 로드하기
 - [x] treesitter 기능을 사용자가 제어할 수 있게 하기
-- [ ] 완성 소스를 고를 때 documentation 보여주기
+- [x] 완성 소스를 고를 때 documentation 보여주기
 - [ ] LSP를 이용하여 웹 스크래핑 없이 소스 제공하기
 
 ## 참고한 프로젝트
